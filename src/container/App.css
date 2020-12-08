@@ -1,7 +1,8 @@
 .app{
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 100vw;
+    height: 100vh;
 }
 
 
@@ -27,4 +28,29 @@
 .top__icon, .top__icon path{
     color: var(--icon-color);
     stroke: var(--icon-color);
+}
+
+/* // main layot  */
+
+.app__main{
+    display: flex;
+    flex: 1;
+    background-color: var(--main-color);
+}
+
+.contact{
+    background-color: var(--menu-section-bc);
+    min-width: 262px;
+    width: 262px;
+    border-right: 1px  --main-border-color solid;
+}
+.chat{
+    flex: 1;
+    min-width: 350px;
+    background-color: var(--chat-section-bc);
+}
+.info{
+    min-width: 292px;
+    max-width: 392px;
+    background-color: var(--menu-section-bc);
 }

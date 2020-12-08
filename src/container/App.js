@@ -9,9 +9,9 @@ function App() {
     <div className="app">
       <Top />
       <div className="app__main">
-        <Contact className="app__contact" />
-        <Chat className="app__chat" />
-        <Info className="app__info" />
+        <Contact />
+        <Chat />
+        <Info />
       </div>
     </div>
   );

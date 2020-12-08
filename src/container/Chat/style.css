@@ -2,8 +2,10 @@
     display: flex;
     flex-direction: column;
 }
+
+/* chat header sytle  */
+
 .chat__header{
-    /* width: 100%; */
     background-color: var(--menu-section-bc);
     display: flex;
     justify-content: space-between;
@@ -45,6 +47,9 @@
 .chat__message-block{
     flex: 1;
 }
+
+/* char form style here  */
+
 .chat__form{
     display: flex;
     width: 100%;
@@ -66,3 +71,5 @@
 .chat__form button{
     display: none;
 }
+
+/* chat message block here  */

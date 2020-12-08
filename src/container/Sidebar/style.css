@@ -11,6 +11,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    color:var(--icon-color);
 }
 .contact__search{
     display: flex;
@@ -19,6 +20,7 @@
     width: 80%;
     height: 49%;
     background-color: var(--top-bc);
+    border-radius: 5px;
 }
 .contact__search input{
     width: 100%;
@@ -34,8 +36,61 @@
     top: 5px;
     right: 5px;
     cursor: pointer;
+    color:var(--icon-color);
 }
 .contact__close:hover{
     color: var(--text-color)
 }
 
+/* // user card styling  */
+
+.user{
+    display: flex;
+    justify-content: space-between;
+    padding:  10px;
+}
+
+.user:hover{
+    background-color: var(--icon-hv);
+    cursor: pointer;
+}
+.user__image{
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 12px;
+}
+.user__block, .user__row-in-name{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.user__row-in-name{
+    justify-content: space-between;
+}
+.user__name{
+    font-size: 15px;
+    font-weight: normal;
+    text-align: left;
+}
+.user__time{
+    font-size: 12px;
+}
+.user__row-in-name{
+    flex-direction: row;
+    width: 100%;
+    color: var( --text-color);
+}
+.user__row-in-text{
+    font-size: 14px;
+    color: var( --subtext-color);
+}
+.user__text{
+    white-space: nowrap; 
+    width: 178px; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}

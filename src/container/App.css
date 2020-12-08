@@ -46,7 +46,17 @@
     background-color: var(--menu-section-bc);
     min-width: 262px;
     width: 262px;
-    border-right: 1px  --main-border-color solid;
+    border-right: 1px var( --main-border-color) solid;
+   
+}
+.contact__user::-webkit-scrollbar{
+    display: none;
+}
+.contact__user{
+    overflow: scroll;
+    scrollbar-width: 0;
+    height: 90vh;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
 }
 .chat{
     flex: 1;
@@ -57,4 +67,6 @@
     min-width: 292px;
     max-width: 392px;
     background-color: var(--menu-section-bc);
+    border-left: 1px var( --main-border-color) solid;
+   
 }

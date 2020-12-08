@@ -16,7 +16,19 @@ const Contact = () => {
           <MdClose className="contact__close" />
         </div>
       </div>
-      <User />
+      <div className="contact__user">
+        <User />
+        <User />
+        <User />
+        <User />
+        <User />
+        <User />
+        <User />
+        <User />
+        <User />
+        <User />
+        <User />
+      </div>
     </div>
   );
 };

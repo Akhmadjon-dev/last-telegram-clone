@@ -1,0 +1,30 @@
+.app{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+
+/* // top section style */
+.top{
+    height: 20px;
+    display: flex;
+    justify-content: flex-end;
+    background-color: var(--top-bc);
+    align-items: center;
+    
+}
+.top__icons{
+    display: flex;
+}
+.top__icon{
+    padding: 0px 7px;
+    cursor: pointer;
+}
+.top__icon:hover{
+    background-color: var(--icon-hover);
+}
+.top__icon, .top__icon path{
+    color: var(--icon-color);
+    stroke: var(--icon-color);
+}

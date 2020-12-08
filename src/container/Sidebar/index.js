@@ -1,7 +1,7 @@
 import React from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { MdClose } from "react-icons/md";
-
+import User from "./User";
 import "./style.css";
 
 const Contact = () => {
@@ -12,10 +12,11 @@ const Contact = () => {
           <GiHamburgerMenu />
         </div>
         <div className="contact__search">
-          <input type="text" />
-          <MdClose />
+          <input type="text" placeholder="Search" />
+          <MdClose className="contact__close" />
         </div>
       </div>
+      <User />
     </div>
   );
 };

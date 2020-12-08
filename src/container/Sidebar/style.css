@@ -3,10 +3,39 @@
     padding: 0 10px;
     align-items: center;
     justify-content: space-between;
+    height: 54px;
 }
 .contact__icon{
     margin-left: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
+.contact__search{
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 80%;
+    height: 49%;
+    background-color: var(--top-bc);
+}
+.contact__search input{
+    width: 100%;
+    padding-left: 10px;
+    border: 0;
+    outline-width: 0;
+    background-color: inherit;
+    color: var(--text-color);
+}
+.contact__close{
+    /* display: none; */
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+}
+.contact__close:hover{
+    color: var(--text-color)
+}
+

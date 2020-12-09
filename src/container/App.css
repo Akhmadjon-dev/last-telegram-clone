@@ -55,7 +55,7 @@
 .contact__user{
     overflow: scroll;
     scrollbar-width: 0;
-    height: 87vh;
+    height: 90vh;
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
 }
 .chat{

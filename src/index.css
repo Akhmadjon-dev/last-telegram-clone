@@ -19,6 +19,8 @@
   --chat-section-bc: #0E1621;
   --sender-bc: #17212B;
   --info-section-bc: #232E3C;
+  --info-border: 10px solid var(--top-bc);
+  --info-row-bc: #1F2936;
   
   --header-bc: #17212B;
   
@@ -26,6 +28,7 @@
   --active-text: #F5F5F5;
   
   --hover-bc: #202B36;
+  --border: 1px solid #0c121a;
 }
 
 

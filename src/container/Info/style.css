@@ -2,13 +2,13 @@
     display: flex;
     flex-direction: column;
 }
-.info::-webkit-scrollbar{
+.info__main::-webkit-scrollbar{
     display: none;
 }
-.info{
+.info__main{
+    height: 88vh;
     overflow: scroll;
     scrollbar-width: 0;
-    height: 97vh;
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
 }
 
@@ -16,7 +16,7 @@
 
 .info__header{
     width: 100%;
-    height: 150px;
+    height: 105px;
     padding: 15px;
     display: flex;
     justify-content: space-between;
@@ -26,6 +26,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 14px 15px;
+    border-bottom: var(--border);
 }
 .info__icon{
     font-size: 26px;
@@ -78,5 +80,86 @@
 .info__notif-rows{
     display: flex;
     flex-direction: column;
-    padding: 10px 15px;
+    padding: 20px 15px;
+    min-height: 160px;
+    border-top:  var(--info-border);
+    color: var(--text-color);
+    font-size: 13px;
+    justify-content: space-around;
+}
+.info__notif-rows hr{
+    margin-left: 24%;
+    width: 81%;
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #0000006e;
+}
+.info__notif-row{
+    display: flex;
+    align-items: center;
+}
+.info__notif-row > .info__icon{
+   margin-right: 28px;
+   margin-left: 10px;
+   font-size: 24px;
+}
+
+.info__notification{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.info__phone p{
+    margin-bottom: 5px;
+}
+.info__files-section{
+    border-top: var(--info-border);
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+}
+.info__files-row{
+    display: flex;
+    align-items: center;
+    color: var(--text-color);
+    font-size: 13px;
+    min-height: 36px;
+}
+.info__files-row .info__icon{
+    font-size: 24px;
+}
+.info__files-row:hover{
+    background-color: var(--info-row-bc);
+    cursor: pointer;
+}
+.info__files-row .info__icon{
+    margin: 0px 22px 0 26px;
+}
+
+.info__files-numbers{
+    margin-right: 6px;
+}
+.info__bottom{
+    border-top: var(--info-border);
+    padding-top: 10px;
+}
+.info__bottom-row{
+    display: flex;
+    align-items: center;
+    min-height: 36px;
+    color: var(--text-color);
+    font-size: 13px;
+}
+.info__bottom-row:hover{
+    background-color: var(--info-row-bc);
+    cursor: pointer;
+}
+.info__bottom-row .info__icon{
+    margin: 0px 22px 0 26px;
+    font-size: 24px;
+}
+.info__bottom-text{
+    margin-left: 71px;
 }

@@ -31,11 +31,55 @@ const Chat = () => {
         </div>
       </div>
       <div className="chat__message-block">
-        <div className="chat__come-message">
+        <div className="chat__message chat__come-message">
           <p className="chat__message-text">yo my name is Jhon</p>
           <span className="chat__message-time">3:07 PM</span>
         </div>
-        <div className="chat__go-message">
+        <div className="chat__message chat__go-message">
+          <p className="chat__message-text">woow nice name man!</p>
+          <span className="chat__message-time">3:10 PM</span>
+        </div>
+        <div className="chat__message chat__come-message">
+          <p className="chat__message-text">
+            so what is your name? do you ever heard about me? man{" "}
+          </p>
+          <span className="chat__message-time">3:07 PM</span>
+        </div>
+        <div className="chat__message chat__come-message">
+          <p className="chat__message-text">
+            so what is your name? do you ever heard about me? man{" "}
+          </p>
+          <span className="chat__message-time">3:07 PM</span>
+        </div>
+        <div className="chat__message chat__come-message">
+          <p className="chat__message-text">
+            so what is your name? do you ever heard about me? man{" "}
+          </p>
+          <span className="chat__message-time">3:07 PM</span>
+        </div>
+        <div className="chat__message chat__go-message">
+          <p className="chat__message-text">woow nice name man!</p>
+          <span className="chat__message-time">3:10 PM</span>
+        </div>
+        <div className="chat__message chat__come-message">
+          <p className="chat__message-text">
+            so what is your name? do you ever heard about me? man{" "}
+          </p>
+          <span className="chat__message-time">3:07 PM</span>
+        </div>
+        <div className="chat__message chat__come-message">
+          <p className="chat__message-text">
+            so what is your name? do you ever heard about me? man{" "}
+          </p>
+          <span className="chat__message-time">3:07 PM</span>
+        </div>
+        <div className="chat__message chat__come-message">
+          <p className="chat__message-text">
+            so what is your name? do you ever heard about me? man{" "}
+          </p>
+          <span className="chat__message-time">3:07 PM</span>
+        </div>
+        <div className="chat__message chat__go-message">
           <p className="chat__message-text">woow nice name man!</p>
           <span className="chat__message-time">3:10 PM</span>
         </div>

@@ -50,12 +50,25 @@
    
 }
 .contact__user::-webkit-scrollbar{
-    display: none;
+    /* display: none; */
+    width: 2px;
+	background-color:var(--scroll-bc);
+}
+.contact__user::-webkit-scrollbar-track {
+	background-color:var(--scroll-bc);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+.contact__user::-webkit-scrollbar-thumb {
+background-color: var(--scroll-bc);
+border: 1px solid var(--scroll-color);
+outline-width: 0;
+border-radius: 10px;
 }
 .contact__user{
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
     scrollbar-width: 0;
-    height: 90vh;
+    height: 89vh;
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
 }
 .chat{

@@ -76,11 +76,24 @@
 .chat__message-block{
     flex: 1;
 }
+
 .chat__message-block::-webkit-scrollbar{
-    display: none;
+    width: 2px;
+	background-color:var(--scroll-bc);
+}
+.chat__message-block::-webkit-scrollbar-track {
+	background-color:var(--scroll-bc);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+.chat__message-block::-webkit-scrollbar-thumb {
+background-color: var(--scroll-bc);
+border: 1px solid var(--scroll-color);
+outline-width: 0;
+border-radius: 10px;
 }
 .chat__message-block{
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
     scrollbar-width: 0;
     height: 538px;
     -ms-overflow-style: none;  /* Internet Explorer 10+ */

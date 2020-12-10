@@ -30,6 +30,8 @@ exports.signIn = async (req, res) => {
   }
 };
 
+// sign up
+
 exports.signUp = async (req, res) => {
   const { password, email } = req.body;
   const hashedPassword = bcrypt.hashSync(password, 8);

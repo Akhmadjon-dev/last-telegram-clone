@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 const cors = require("cors");
 const MongoStore = require("connect-mongo")(session);
+const { name, password } = require("./configs/key");
 // const compression = require("compression");
 
 // const isLoggedIn = require('./utils/index').authHandler;
@@ -12,8 +13,7 @@ const MongoStore = require("connect-mongo")(session);
 const port = process.env.PORT || 8888;
 
 // const database = 'mongodb://localhost/pos';
-const database =
-  "mongodb+srv://ahmad:dHS9JTOqcQ82eAed@telegram-clone.sziym.mongodb.net/telegram?retryWrites=true&w=majority";
+const database = `mongodb+srv://${name}:${password}@telegram-clone.sziym.mongodb.net/telegram?retryWrites=true&w=majority`;
 
 // const adminsRouter = require('./routes/admins');
 // const authRouter = require('./routes/auth');

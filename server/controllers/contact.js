@@ -1,0 +1,51 @@
+const bcrypt = require("bcrypt");
+const Contacts = require("../models//contact");
+
+exports.fetchAllContacts = (req, res) => {
+  Contacts.find()
+    .then((msg) => res.status(200).json(msg))
+    .catch((err) => res.status(501).send(err));
+};
+
+exports.fetchContactById = (req, res) => {
+  const { id } = req.params;
+
+  Contacts.findById(id)
+    .then((user) => {
+      res.status(200).json(user);
+    })
+    .catch((err) => res.status(501).send(err));
+};
+
+exports.createContact = async (req, res) => {
+  const Contact = new Contacts({
+    ...req.body,
+  });
+
+  Contact.save()
+    .then((Contact) => {
+      res.json(Contact);
+    })
+    .catch((err) => {
+      res.json({ success: false, error: err.msg });
+    });
+};
+
+exports.updateContactById = async (req, res) => {
+  const { id } = req.params;
+  const updatedData = { ...req.body };
+
+  Contacts.findByIdAndUpdate(id, { $set: updatedData }, { new: true })
+    .then((Contact) => {
+      res.status(200).json(Contact);
+    })
+    .catch((err) => res.status(501).send(err));
+};
+exports.deleteContactById = (req, res) => {
+  const { id } = req.params;
+  Contacts.findByIdAndRemove(id)
+    .then(() => {
+      res.status(200).json({ success: true, msg: "Successfully deleted" });
+    })
+    .catch((err) => res.status(501).send(err));
+};

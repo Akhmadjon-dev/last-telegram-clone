@@ -7,13 +7,25 @@ const userSchema = new Schema({
     type: String,
     unique: true,
   },
+  bio: String,
   img: String,
-  name: String,
+  firstName: String,
+  lastName: String,
+  userName: String,
   password: {
     required: true,
     type: String,
   },
+  status: String,
   phone: String,
+  createdAt: {
+    default: Date.now(),
+    type: Number,
+  },
+  updatedAt: {
+    default: Date.now(),
+    type: Number,
+  },
 });
 
 userSchema.index({ email: 1 });

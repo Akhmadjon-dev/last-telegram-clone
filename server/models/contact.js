@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const userSchema = new Schema({
+const contactSchema = new Schema({
   myId: { type: Schema.Types.ObjectId },
   friendId: { type: Schema.Types.ObjectId },
   status: String,
@@ -12,7 +12,6 @@ const userSchema = new Schema({
   },
 });
 
-userSchema.index({ email: 1 });
-const user = mongoose.model("User", userSchema);
+const contact = mongoose.model("Contact", contactSchema);
 
-module.exports = user;
+module.exports = contact;

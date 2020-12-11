@@ -17,10 +17,9 @@ exports.fetchContactById = (req, res) => {
 };
 
 exports.createContact = async (req, res) => {
-
   const Contact = new Contacts({
     ...req.body,
-    myId = req.session.userId
+    myId: req.session.userId,
   });
 
   Contact.save()
@@ -38,7 +37,7 @@ exports.updateContactById = async (req, res) => {
 
   Contacts.findByIdAndUpdate(id, { $set: updatedData }, { new: true })
     .then((Contact) => {
-      res.status(200).json(Contact); 
+      res.status(200).json(Contact);
     })
     .catch((err) => res.status(501).send(err));
 };

@@ -8,18 +8,17 @@ const MongoStore = require("connect-mongo")(session);
 const { name, password } = require("./configs/key");
 // const compression = require("compression");
 
-const isLoggedIn = require('./utils/index').authHandler;
+const isLoggedIn = require("./utils/index").authHandler;
 
 const port = process.env.PORT || 8888;
 
 // const database = 'mongodb://localhost/pos';
 const database = `mongodb+srv://${name}:${password}@telegram-clone.sziym.mongodb.net/telegram?retryWrites=true&w=majority`;
 
-const authRouter = require('./routes/auth');
-const usersRouter = require('./routes/users');
-// const customersRouter = require('./routes/customers');
-// const productsRouter = require('./routes/products');
-// const sellersRouter = require('./routes/sellers');
+const authRouter = require("./routes/auth");
+const usersRouter = require("./routes/user");
+const messageRouter = require("./routes/message");
+const contactRouter = require("./routes/contact");
 
 const app = express();
 
@@ -48,12 +47,11 @@ app.use(
   })
 );
 
-app.use('/auth', authRouter);
 app.use(isLoggedIn);
-app.use('/users', usersRouter);
-// app.use('/customers', customersRouter);
-// app.use('/products', productsRouter);
-// app.use('/sellers', sellersRouter);
+app.use("/auth", authRouter);
+app.use("/users", usersRouter);
+app.use("/message", messageRouter);
+app.use("/contact", contactRouter);
 
 mongoose
   .connect(database, { useNewUrlParser: true, useFindAndModify: false })

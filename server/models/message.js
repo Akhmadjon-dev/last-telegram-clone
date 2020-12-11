@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const userSchema = new Schema({
+const messageSchema = new Schema({
   text: String,
   toId: { type: Schema.Types.ObjectId },
   fromId: { type: Schema.Types.ObjectId },
@@ -13,7 +13,7 @@ const userSchema = new Schema({
   },
 });
 
-userSchema.index({ email: 1 });
-const user = mongoose.model("User", userSchema);
+messageSchema.index({ createdAt: 1 });
+const message = mongoose.model("Message", messageSchema);
 
-module.exports = user;
+module.exports = message;

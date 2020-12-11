@@ -8,15 +8,15 @@ const MongoStore = require("connect-mongo")(session);
 const { name, password } = require("./configs/key");
 // const compression = require("compression");
 
-// const isLoggedIn = require('./utils/index').authHandler;
+const isLoggedIn = require('./utils/index').authHandler;
 
 const port = process.env.PORT || 8888;
 
 // const database = 'mongodb://localhost/pos';
 const database = `mongodb+srv://${name}:${password}@telegram-clone.sziym.mongodb.net/telegram?retryWrites=true&w=majority`;
 
-// const adminsRouter = require('./routes/admins');
-// const authRouter = require('./routes/auth');
+const authRouter = require('./routes/auth');
+const usersRouter = require('./routes/users');
 // const customersRouter = require('./routes/customers');
 // const productsRouter = require('./routes/products');
 // const sellersRouter = require('./routes/sellers');
@@ -48,9 +48,9 @@ app.use(
   })
 );
 
-// app.use(isLoggedIn);
-// app.use('/admins', adminsRouter);
-// app.use('/auth', authRouter);
+app.use('/auth', authRouter);
+app.use(isLoggedIn);
+app.use('/users', usersRouter);
 // app.use('/customers', customersRouter);
 // app.use('/products', productsRouter);
 // app.use('/sellers', sellersRouter);

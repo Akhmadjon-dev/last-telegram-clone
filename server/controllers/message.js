@@ -1,8 +1,4 @@
-const bcrypt = require("bcrypt");
 const Messages = require("../models/message");
-// const util = require('../utils');
-
-// const baseUrl = process.env.REACT_APP_baseUrl || '';
 
 exports.fetchAllMessages = (req, res) => {
   Messages.find()
@@ -20,6 +16,21 @@ exports.fetchMessageById = (req, res) => {
     .catch((err) => res.status(501).send(err));
 };
 
+exports.createMessage = async (req, res) => {
+  const Message = new Messages({
+    ...req.body,
+    fromId: req.session.userId,
+  });
+
+  Message.save()
+    .then((msg) => {
+      res.json(msg);
+    })
+    .catch((err) => {
+      res.json({ success: false, error: err.msg });
+    });
+};
+
 exports.updateMessageById = async (req, res) => {
   const { id } = req.params;
   const updatedData = { ...req.body, updatedAt: Date.now() };
@@ -30,7 +41,6 @@ exports.updateMessageById = async (req, res) => {
     })
     .catch((err) => res.status(501).send(err));
 };
-
 
 exports.deleteMessageById = (req, res) => {
   const { id } = req.params;

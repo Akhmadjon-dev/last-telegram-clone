@@ -57,7 +57,6 @@ exports.deleteAllUsers = (req, res) => {
 exports.updateUserById = async (req, res) => {
   const { id } = req.params;
   //   const { webCam, oldImg, updatedAt, name, } = req.body;
-  const { oldImg, updatedAt } = req.body;
 
   //   let imgFile = null;
 
@@ -67,7 +66,7 @@ exports.updateUserById = async (req, res) => {
 
   //   const img = req.file ? baseUrl + req.file.path.replace('public', '') : (imgFile || webCam || oldImg);
 
-  const updatedData = { ...req.body };
+  const updatedData = { ...req.body, updatedAt: Date.now() };
 
   Users.findByIdAndUpdate(id, { $set: updatedData }, { new: true })
     .then((user) => {

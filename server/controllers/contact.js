@@ -1,4 +1,3 @@
-const bcrypt = require("bcrypt");
 const Contacts = require("../models//contact");
 
 exports.fetchAllContacts = (req, res) => {
@@ -18,8 +17,10 @@ exports.fetchContactById = (req, res) => {
 };
 
 exports.createContact = async (req, res) => {
+
   const Contact = new Contacts({
     ...req.body,
+    myId = req.session.userId
   });
 
   Contact.save()
@@ -33,11 +34,11 @@ exports.createContact = async (req, res) => {
 
 exports.updateContactById = async (req, res) => {
   const { id } = req.params;
-  const updatedData = { ...req.body };
+  const updatedData = { ...req.body, updatedAt: Date.now() };
 
   Contacts.findByIdAndUpdate(id, { $set: updatedData }, { new: true })
     .then((Contact) => {
-      res.status(200).json(Contact);
+      res.status(200).json(Contact); 
     })
     .catch((err) => res.status(501).send(err));
 };

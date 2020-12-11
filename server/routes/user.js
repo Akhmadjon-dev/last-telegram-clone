@@ -8,7 +8,7 @@ router.get("/", controllers.fetchAllUsers);
 // router.post("/", multer.single("img"), controllers.createUser);
 router.get("/:id", controllers.fetchUserById);
 router.post("/:id/edit", multer.single("img"), controllers.updateUserById);
-router.get("/:id/delete", controllers.deleteUserById);
+router.delete("/:id/delete", controllers.deleteUserById);
 router.post("/:id/change-auth", controllers.changeUserAuth);
 
 module.exports = router;

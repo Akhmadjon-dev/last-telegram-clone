@@ -7,6 +7,6 @@ router.get("/", controllers.fetchAllMessages);
 router.post("/", controllers.createMessage);
 router.get("/:id", controllers.fetchMessageById);
 router.post("/:id/edit", controllers.updateMessageById);
-router.get("/:id/delete", controllers.deleteMessageById);
+router.delete("/:id/delete", controllers.deleteMessageById);
 
 module.exports = router;

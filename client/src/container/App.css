@@ -73,7 +73,7 @@ border-radius: 10px;
 }
 .chat{
     flex: 1;
-    min-width: 350px;
+    min-width: 306px;
     background-color: var(--chat-section-bc);
 }
 .info{
@@ -81,5 +81,24 @@ border-radius: 10px;
     max-width: 392px;
     background-color: var(--menu-section-bc);
     border-left: 1px var( --main-border-color) solid;
-   
+    display: flex;
+    flex-direction: column;
 }
+
+@media screen and (max-width: 617px) {
+    .contact{
+        min-width: 66px;
+        width: 66px;
+    }
+    .contact__search{
+        display: none;
+    }
+    .user__block{
+        display: none;
+    }
+  }
+@media screen and (max-width: 905px) {
+    .info{
+        display: none;
+    }
+  }

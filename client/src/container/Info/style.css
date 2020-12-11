@@ -1,7 +1,3 @@
-.info{
-    display: flex;
-    flex-direction: column;
-}
 
 .info__main::-webkit-scrollbar{
     width: 2px;

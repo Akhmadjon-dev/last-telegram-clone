@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FaPhoneAlt, FaSearch } from "react-icons/fa";
 import { BsLayoutTextWindow } from "react-icons/bs";
 import { HiDotsVertical } from "react-icons/hi";
@@ -7,11 +7,16 @@ import { RiSendPlane2Line } from "react-icons/ri";
 import { GrAttachment } from "react-icons/gr";
 import { BiSmile } from "react-icons/bi";
 import axios from "../../utils/axios";
+import UserContext from "../../store/context/auth";
 import "./style.css";
-const Chat = ({ _id }) => {
+
+const Chat = (props) => {
+  const { _id } = props;
+  const { user } = useContext(UserContext);
   const [msg, setMsg] = useState([]);
   const [chatMsg, setChatMsg] = useState([]);
 
+  console.log(user, "context api chat");
   useEffect(() => {
     axios
       .get("/message")
@@ -26,7 +31,7 @@ const Chat = ({ _id }) => {
     setChatMsg(res);
   }, [_id]);
 
-  console.log(msg, chatMsg);
+  // console.log(msg, chatMsg);
   return (
     <div className="chat">
       <div className="chat__header">

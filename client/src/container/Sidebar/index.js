@@ -5,14 +5,7 @@ import User from "./User";
 import "./style.css";
 import axios from "../../utils/axios";
 
-const Contact = () => {
-  const [users, setUsers] = useState([]);
-  useEffect(() => {
-    axios.get("/users").then((res) => {
-      setUsers(res.data);
-    });
-  }, []);
-  console.log(users);
+const Contact = ({ data, setId }) => {
   return (
     <div className="contact">
       <div className="contact__header">
@@ -25,7 +18,9 @@ const Contact = () => {
         </div>
       </div>
       <div className="contact__user">
-        <User />
+        {data.map((user) => (
+          <User onClick={setId} data={user} key={user._id} />
+        ))}
       </div>
     </div>
   );

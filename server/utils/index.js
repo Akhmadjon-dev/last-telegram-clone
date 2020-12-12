@@ -87,7 +87,7 @@ const baseUrl = process.env.REACT_APP_baseUrl || "";
 // };
 
 exports.authHandler = (req, res, next) => {
-  const whiteList = ["/auth/sign-in", "/users", "/auth/sign-up"];
+  const whiteList = ["/auth/sign-in", "/users", "/message", "/auth/sign-up"];
   console.log(req.session, req.url);
 
   if (!whiteList.includes(req.url)) {

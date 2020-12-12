@@ -3,7 +3,6 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { MdClose } from "react-icons/md";
 import User from "./User";
 import "./style.css";
-import axios from "../../utils/axios";
 
 const Contact = ({ data, setId }) => {
   return (
@@ -19,7 +18,7 @@ const Contact = ({ data, setId }) => {
       </div>
       <div className="contact__user">
         {data.map((user) => (
-          <User onClick={setId} data={user} key={user._id} />
+          <User Click={setId} data={user} key={user._id} />
         ))}
       </div>
     </div>

@@ -18,14 +18,15 @@ function App() {
   console.log(users);
   const getUserId = (id) => {
     setUserId(id);
-    console.log(userId);
+    console.log(id);
+    console.log("clicked");
   };
   return (
     <div className="app">
       <Top />
       <div className="app__main">
         <Contact setId={getUserId} data={users} />
-        <Chat />
+        <Chat _id={userId} />
         <Info />
       </div>
     </div>

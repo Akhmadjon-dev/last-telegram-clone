@@ -1,13 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaPhoneAlt, FaSearch } from "react-icons/fa";
 import { BsLayoutTextWindow } from "react-icons/bs";
 import { HiDotsVertical } from "react-icons/hi";
 import { TiMicrophoneOutline } from "react-icons/ti";
 import { RiSendPlane2Line } from "react-icons/ri";
-import "./style.css";
 import { GrAttachment } from "react-icons/gr";
 import { BiSmile } from "react-icons/bi";
-const Chat = () => {
+import axios from "../../utils/axios";
+import "./style.css";
+const Chat = ({ _id }) => {
+  const [msg, setMsg] = useState([]);
+  const [chatMsg, setChatMsg] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("/message")
+      .then((res) => {
+        setMsg(res.data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
+  useEffect(() => {
+    const res = msg.filter((item) => item._id === _id);
+    setChatMsg(res);
+  }, [_id]);
+
+  console.log(msg, chatMsg);
   return (
     <div className="chat">
       <div className="chat__header">
@@ -30,6 +49,7 @@ const Chat = () => {
           </div>
         </div>
       </div>
+
       <div className="chat__message-block">
         <div className="chat__message chat__come-message">
           <p className="chat__message-text">yo my name is Jhon</p>
@@ -84,6 +104,7 @@ const Chat = () => {
           <span className="chat__message-time">3:10 PM</span>
         </div>
       </div>
+
       <div className="chat__form">
         <div className="chat__icon chat__file-icon">
           <GrAttachment />

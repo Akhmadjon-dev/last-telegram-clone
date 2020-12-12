@@ -2,10 +2,13 @@ import React from "react";
 import UserImg from "../../assets/img/user.jpg";
 import moment from "moment";
 const User = (props) => {
-  const { data, onClick } = props;
+  const { data, Click } = props;
   const { _id, img, userName, updatedAt } = data;
+  function userId() {
+    Click(_id);
+  }
   return (
-    <div onClick={onClick(_id)} className="user">
+    <div onClick={userId} className="user">
       <img className="user__image" src={img ? img : UserImg} alt="user" />
       <div className="user__block">
         <div className="user__row-in-name">

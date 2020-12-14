@@ -6,6 +6,7 @@ import Info from "./Info";
 import { useContext, useEffect, useState, Provider } from "react";
 import UserContext from "../store/context/auth";
 import axios from "../utils/axios";
+import SignIn from "./Auth/SignIn";
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -23,19 +24,30 @@ function App() {
     console.log(id);
     console.log("clicked");
   };
-
-  return (
-    <UserContext.Provider value={{ user: { name: "ali" } }}>
-      <div className="app">
-        <Top />
-        <div className="app__main">
-          <Contact setId={getUserId} data={users} />
-          <Chat _id={userId} />
-          <Info />
+  const user = false;
+  if (user) {
+    return (
+      <UserContext.Provider value={{ user: { name: "ali" } }}>
+        <div className="app">
+          <Top />
+          <div className="app__main">
+            <Contact setId={getUserId} data={users} />
+            <Chat _id={userId} />
+            <Info />
+          </div>
         </div>
-      </div>
-    </UserContext.Provider>
-  );
+      </UserContext.Provider>
+    );
+  } else {
+    return (
+      <UserContext.Provider value={{ user: { name: "ali" } }}>
+        <div className="app">
+          <Top />
+          <SignIn />
+        </div>
+      </UserContext.Provider>
+    );
+  }
 }
 
 export default App;

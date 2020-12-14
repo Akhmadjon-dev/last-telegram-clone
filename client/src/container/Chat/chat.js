@@ -31,7 +31,6 @@ const Chat = (props) => {
     setChatMsg(res);
   }, [_id]);
 
-  // console.log(msg, chatMsg);
   return (
     <div className="chat">
       <div className="chat__header">

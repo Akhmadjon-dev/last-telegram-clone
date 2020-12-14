@@ -11,7 +11,8 @@ import UserContext from "../../store/context/auth";
 import "./style.css";
 
 const Chat = (props) => {
-  const { _id } = props;
+  const { isInfo, data } = props;
+  const { userId: _id, infoIsShown } = data;
   const { user } = useContext(UserContext);
   const [msg, setMsg] = useState([]);
   const [chatMsg, setChatMsg] = useState([]);
@@ -45,7 +46,12 @@ const Chat = (props) => {
           <div className="chat__icon">
             <FaSearch />
           </div>
-          <div className="chat__icon">
+          <div
+            onClick={() => {
+              isInfo(!infoIsShown);
+            }}
+            className="chat__icon"
+          >
             <BsLayoutTextWindow />
           </div>
           <div className="chat__icon">

@@ -14,6 +14,7 @@ function App() {
   const [users, setUsers] = useState([]);
   const [userId, setUserId] = useState("");
   const [auth, setAuth] = useState();
+  const [infoIsShown, setInfoIsShown] = useState(true);
 
   useEffect(() => {
     axios.get("/users").then((res) => {
@@ -37,8 +38,8 @@ function App() {
     const main = (
       <div className="app__main">
         <Contact setId={getUserId} data={users} />
-        <Chat _id={userId} />
-        <Info />
+        <Chat isInfo={setInfoIsShown} data={{ userId, infoIsShown }} />
+        {infoIsShown && <Info />}
       </div>
     );
     return (

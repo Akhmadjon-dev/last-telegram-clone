@@ -13,7 +13,7 @@ import "./App.css";
 function App() {
   const [users, setUsers] = useState([]);
   const [userId, setUserId] = useState("");
-  const [auth, setAuth] = useState({ name: "user" });
+  const [auth, setAuth] = useState();
 
   useEffect(() => {
     axios.get("/users").then((res) => {
@@ -26,8 +26,14 @@ function App() {
     console.log(id);
     console.log("clicked");
   };
-  const user = false;
-  if (user) {
+
+  const updateContext = (data) => {
+    setAuth(data);
+  };
+
+  console.log(auth, "context app auth");
+
+  if (auth) {
     const main = (
       <div className="app__main">
         <Contact setId={getUserId} data={users} />
@@ -36,7 +42,7 @@ function App() {
       </div>
     );
     return (
-      <UserContext.Provider value={{ user: { name: "ali" } }}>
+      <UserContext.Provider value={{ user: auth, updateContext }}>
         <BrowserRouter>
           <div className="app">
             <Top />
@@ -50,7 +56,7 @@ function App() {
     );
   } else {
     return (
-      <UserContext.Provider value={{ user: { name: "ali" } }}>
+      <UserContext.Provider value={{ auth, updateContext }}>
         <div className="app">
           <BrowserRouter>
             <Top />
@@ -65,5 +71,4 @@ function App() {
     );
   }
 }
-
 export default App;

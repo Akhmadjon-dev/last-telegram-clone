@@ -1,24 +1,29 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { Link } from "react-router-dom";
+import UserContext from "../../store/context/auth";
 import axios from "../../utils/axios";
 import "./style.css";
 const SignIn = () => {
   const [user, setUser] = useState({ email: "", password: "" });
+  const [auth, setAuth] = useState({});
+  const store = useContext(UserContext);
   const inputHandler = (e) => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
   };
   const formHandler = (e) => {
     e.preventDefault();
-    let formData = new FormData();
-    formData.append("email", user.email);
-    formData.append("password", user.password);
-
+    let formData = {
+      email: user.email,
+      password: user.password,
+    };
     axios
       .post("/auth/sign-in", formData)
       .then((res) => {
-        console.log(res.data);
+        console.log(res);
+        setAuth(res.data.payload);
+        store.updateContext(res.data.payload);
       })
       .catch((err) => console.log(err));
     console.log(user);

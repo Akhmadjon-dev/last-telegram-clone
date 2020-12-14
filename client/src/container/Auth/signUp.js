@@ -3,7 +3,7 @@ import { IoMdArrowRoundBack } from "react-icons/io";
 import { Link } from "react-router-dom";
 import axios from "../../utils/axios";
 import "./style.css";
-const SignIn = () => {
+const SignUp = () => {
   const [user, setUser] = useState({ email: "", password: "" });
   const inputHandler = (e) => {
     const { name, value } = e.target;
@@ -54,8 +54,8 @@ const SignIn = () => {
             </button>
           </form>
           <span>
-            Quick <Link to="/sign-up">Sign up</Link>. If you don't have an
-            account.
+            If you have an account. You can sign in{" "}
+            <Link to="/sign-in">here</Link>
           </span>
         </div>
       </div>
@@ -63,4 +63,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default SignUp;

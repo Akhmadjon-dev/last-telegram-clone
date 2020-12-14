@@ -111,5 +111,4 @@
 .signIn__container span{
     color: var(--auth-text-color);
     font-size: 13px;
-    cursor: pointer;
 }

@@ -1,12 +1,14 @@
+import { useContext, useEffect, useState, Provider } from "react";
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import Top from "./Top/index";
 import Contact from "./Sidebar/index";
-import "./App.css";
 import Chat from "./Chat/chat";
 import Info from "./Info";
-import { useContext, useEffect, useState, Provider } from "react";
 import UserContext from "../store/context/auth";
 import axios from "../utils/axios";
 import SignIn from "./Auth/SignIn";
+import SignUp from "./Auth/signUp";
+import "./App.css";
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -26,24 +28,38 @@ function App() {
   };
   const user = false;
   if (user) {
+    const main = (
+      <div className="app__main">
+        <Contact setId={getUserId} data={users} />
+        <Chat _id={userId} />
+        <Info />
+      </div>
+    );
     return (
       <UserContext.Provider value={{ user: { name: "ali" } }}>
-        <div className="app">
-          <Top />
-          <div className="app__main">
-            <Contact setId={getUserId} data={users} />
-            <Chat _id={userId} />
-            <Info />
+        <BrowserRouter>
+          <div className="app">
+            <Top />
+            <Switch>
+              <Route key="main" path="/" exact render={() => main} />
+              <Redirect to="/" key="defaultPath" />,
+            </Switch>
           </div>
-        </div>
+        </BrowserRouter>
       </UserContext.Provider>
     );
   } else {
     return (
       <UserContext.Provider value={{ user: { name: "ali" } }}>
         <div className="app">
-          <Top />
-          <SignIn />
+          <BrowserRouter>
+            <Top />
+            <Switch>
+              <Route key="signIn" path="/sign-in" exact component={SignIn} />,
+              <Route key="signUp" path="/sign-up" exact component={SignUp} />,
+              <Redirect to="/sign-in" key="defaultPath" />,
+            </Switch>
+          </BrowserRouter>
         </div>
       </UserContext.Provider>
     );

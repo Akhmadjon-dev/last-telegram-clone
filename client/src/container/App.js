@@ -39,7 +39,7 @@ function App() {
       <div className="app__main">
         <Contact setId={getUserId} data={users} />
         <Chat isInfo={setInfoIsShown} data={{ userId, infoIsShown }} />
-        {infoIsShown && <Info />}
+        {infoIsShown && <Info data={infoIsShown} isInfo={setInfoIsShown} />}
       </div>
     );
     return (

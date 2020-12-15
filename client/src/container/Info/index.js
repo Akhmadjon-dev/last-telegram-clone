@@ -10,12 +10,13 @@ import { IoToggle, IoLinkSharp, IoList } from "react-icons/io5";
 import UserImg from "../../assets/img/user.jpg";
 
 import "./style.css";
-const Info = () => {
+const Info = (props) => {
+  const { data, isInfo } = props;
   return (
     <div className="info">
       <div className="info__title">
         <h3>User Info</h3>
-        <div className="info__icon">
+        <div onClick={() => isInfo(!data)} className="info__icon">
           <GrFormClose />
         </div>
       </div>

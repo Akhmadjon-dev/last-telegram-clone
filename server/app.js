@@ -41,7 +41,7 @@ const store = new MongoStore({
 app.use(
   session({
     secret: "mahfiy kalitni topa olmaysiz",
-    resave: false,
+    resave: true,
     saveUninitialized: true,
     store,
   })

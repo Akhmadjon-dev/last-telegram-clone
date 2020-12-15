@@ -15,7 +15,7 @@ function App() {
   const [userId, setUserId] = useState("");
   const [auth, setAuth] = useState();
   const [infoIsShown, setInfoIsShown] = useState(true);
-
+  const initContext = useContext(UserContext);
   useEffect(() => {
     axios.get("/users").then((res) => {
       setUsers(res.data);
@@ -32,8 +32,7 @@ function App() {
     setAuth(data);
   };
 
-
-  if (auth) {
+  if (initContext) {
     const main = (
       <div className="app__main">
         <Contact setId={getUserId} data={users} />

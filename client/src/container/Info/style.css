@@ -73,6 +73,7 @@
     object-fit: cover;
 }
 .info__name{
+    text-transform: capitalize;
     color: var(--text-color);
     font-size: 17px;
     margin-bottom: 2px;

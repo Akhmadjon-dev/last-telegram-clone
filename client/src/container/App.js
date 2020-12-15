@@ -23,9 +23,8 @@ function App() {
   }, []);
 
   const getUserId = (id) => {
-    setUserId(id);
-    console.log(id);
-    console.log("clicked");
+    let res = users.find((u) => u._id === id);
+    setUserId(res);
   };
 
   const updateContext = (data) => {
@@ -37,7 +36,9 @@ function App() {
       <div className="app__main">
         <Contact setId={getUserId} data={users} />
         <Chat isInfo={setInfoIsShown} data={{ userId, infoIsShown }} />
-        {infoIsShown && <Info data={infoIsShown} isInfo={setInfoIsShown} />}
+        {infoIsShown && (
+          <Info userId={userId} data={infoIsShown} isInfo={setInfoIsShown} />
+        )}
       </div>
     );
     return (

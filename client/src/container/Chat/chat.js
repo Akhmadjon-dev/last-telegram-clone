@@ -7,12 +7,14 @@ import { RiSendPlane2Line } from "react-icons/ri";
 import { GrAttachment } from "react-icons/gr";
 import { BiSmile } from "react-icons/bi";
 import axios from "../../utils/axios";
+import moment from "moment";
 import UserContext from "../../store/context/auth";
+
 import "./style.css";
 
 const Chat = (props) => {
   const { isInfo, data } = props;
-  const { userId: _id, infoIsShown } = data;
+  const { userId, infoIsShown } = data;
   const { user } = useContext(UserContext);
   const [msg, setMsg] = useState([]);
   const [chatMsg, setChatMsg] = useState([]);
@@ -27,19 +29,21 @@ const Chat = (props) => {
   }, []);
 
   useEffect(() => {
-    const res = msg.filter((item) => item.fromId === _id || item.toId === _id);
+    const res = msg.filter((item) => item.toId === userId._id);
     setChatMsg(res);
-    console.log(res);
-  }, [data]);
+    console.log(res, userId);
+  }, [userId]);
 
-  console.log(msg, " all msg");
-  console.log(chatMsg);
+  // console.log(msg, " all msg");
+  // console.log(chatMsg);
   return (
     <div className="chat">
       <div className="chat__header">
         <div className="chat__title-block">
-          <h4 className="chat__name">Jhon Snow</h4>
-          <span className="chat__time">last seen recently</span>
+          <h4 className="chat__name"> {userId.userName} </h4>
+          <span className="chat__time">
+            {moment(userId.updatedAt).fromNow()}
+          </span>
         </div>
         <div className="chat__icons">
           <div className="chat__icon">
@@ -64,12 +68,12 @@ const Chat = (props) => {
 
       <div className="chat__message-block">
         {chatMsg.map((item) =>
-          item.fromId === _id ? (
+          item.fromId === userId._id ? (
             <div className="chat__message chat__go-message">
               <p className="chat__message-text">{item.text}</p>
               <span className="chat__message-time">3:07 PM</span>
             </div>
-          ) : item.toId === _id ? (
+          ) : item.toId === userId._id ? (
             <div className="chat__message chat__come-message">
               <p className="chat__message-text"> {item.text} </p>
               <span className="chat__message-time">3:07 PM</span>

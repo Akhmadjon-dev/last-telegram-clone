@@ -33,9 +33,6 @@ const Chat = (props) => {
     setChatMsg(res);
     console.log(res, userId);
   }, [userId]);
-
-  // console.log(msg, " all msg");
-  // console.log(chatMsg);
   return (
     <div className="chat">
       <div className="chat__header">
@@ -69,12 +66,12 @@ const Chat = (props) => {
       <div className="chat__message-block">
         {chatMsg.map((item) =>
           item.fromId === userId._id ? (
-            <div className="chat__message chat__go-message">
+            <div key={item._id} className="chat__message chat__go-message">
               <p className="chat__message-text">{item.text}</p>
               <span className="chat__message-time">3:07 PM</span>
             </div>
           ) : item.toId === userId._id ? (
-            <div className="chat__message chat__come-message">
+            <div key={item._id} className="chat__message chat__come-message">
               <p className="chat__message-text"> {item.text} </p>
               <span className="chat__message-time">3:07 PM</span>
             </div>

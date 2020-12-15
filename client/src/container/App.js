@@ -8,12 +8,14 @@ import UserContext from "../store/context/auth";
 import axios from "../utils/axios";
 import SignIn from "./Auth/SignIn";
 import SignUp from "./Auth/signUp";
+import AccountInfo from "./Account_bar/index";
 import "./App.css";
 
 function App() {
   const [users, setUsers] = useState([]);
   const [userId, setUserId] = useState("");
   const [auth, setAuth] = useState();
+  const [accountBar, setAccountBar] = useState(false);
   const [infoIsShown, setInfoIsShown] = useState(true);
   const initContext = useContext(UserContext);
   useEffect(() => {
@@ -27,14 +29,23 @@ function App() {
     setUserId(res);
   };
 
+  const accountBarHandler = () => {
+    setAccountBar(!accountBar);
+  };
   const updateContext = (data) => {
     setAuth(data);
   };
 
   if (initContext) {
     const main = (
-      <div className="app__main">
-        <Contact setId={getUserId} data={users} />
+      <div
+        onClick={() => {
+          accountBar && accountBarHandler();
+        }}
+        className="app__main"
+      >
+        <AccountInfo isShow={accountBar} />
+        <Contact setBar={accountBarHandler} setId={getUserId} data={users} />
         <Chat isInfo={setInfoIsShown} data={{ userId, infoIsShown }} />
         {infoIsShown && (
           <Info userId={userId} data={infoIsShown} isInfo={setInfoIsShown} />

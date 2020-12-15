@@ -4,11 +4,16 @@ import { MdClose } from "react-icons/md";
 import User from "./User";
 import "./style.css";
 
-const Contact = ({ data, setId }) => {
+const Contact = ({ data, setId, setBar }) => {
   return (
     <div className="contact">
       <div className="contact__header">
-        <div className="contact__icon">
+        <div
+          onClick={() => {
+            setBar();
+          }}
+          className="contact__icon"
+        >
           <GiHamburgerMenu />
         </div>
         <div className="contact__search">

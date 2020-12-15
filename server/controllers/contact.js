@@ -2,6 +2,7 @@ const Contacts = require("../models//contact");
 
 exports.fetchAllContacts = (req, res) => {
   Contacts.find()
+    .populate("friendId")
     .then((msg) => res.status(200).json(msg))
     .catch((err) => res.status(501).send(err));
 };
@@ -10,6 +11,7 @@ exports.fetchContactById = (req, res) => {
   const { id } = req.params;
 
   Contacts.findById(id)
+    .populate("friendId")
     .then((user) => {
       res.status(200).json(user);
     })

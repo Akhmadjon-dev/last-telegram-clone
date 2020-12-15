@@ -17,7 +17,6 @@ const Chat = (props) => {
   const [msg, setMsg] = useState([]);
   const [chatMsg, setChatMsg] = useState([]);
 
-  console.log(user, "context api chat");
   useEffect(() => {
     axios
       .get("/message")
@@ -28,10 +27,13 @@ const Chat = (props) => {
   }, []);
 
   useEffect(() => {
-    const res = msg.filter((item) => item._id === _id);
+    const res = msg.filter((item) => item.fromId === _id || item.toId === _id);
     setChatMsg(res);
-  }, [_id]);
+    console.log(res);
+  }, [data]);
 
+  console.log(msg, " all msg");
+  console.log(chatMsg);
   return (
     <div className="chat">
       <div className="chat__header">
@@ -61,58 +63,19 @@ const Chat = (props) => {
       </div>
 
       <div className="chat__message-block">
-        <div className="chat__message chat__come-message">
-          <p className="chat__message-text">yo my name is Jhon</p>
-          <span className="chat__message-time">3:07 PM</span>
-        </div>
-        <div className="chat__message chat__go-message">
-          <p className="chat__message-text">woow nice name man!</p>
-          <span className="chat__message-time">3:10 PM</span>
-        </div>
-        <div className="chat__message chat__come-message">
-          <p className="chat__message-text">
-            so what is your name? do you ever heard about me? man{" "}
-          </p>
-          <span className="chat__message-time">3:07 PM</span>
-        </div>
-        <div className="chat__message chat__come-message">
-          <p className="chat__message-text">
-            so what is your name? do you ever heard about me? man{" "}
-          </p>
-          <span className="chat__message-time">3:07 PM</span>
-        </div>
-        <div className="chat__message chat__come-message">
-          <p className="chat__message-text">
-            so what is your name? do you ever heard about me? man{" "}
-          </p>
-          <span className="chat__message-time">3:07 PM</span>
-        </div>
-        <div className="chat__message chat__go-message">
-          <p className="chat__message-text">woow nice name man!</p>
-          <span className="chat__message-time">3:10 PM</span>
-        </div>
-        <div className="chat__message chat__come-message">
-          <p className="chat__message-text">
-            so what is your name? do you ever heard about me? man{" "}
-          </p>
-          <span className="chat__message-time">3:07 PM</span>
-        </div>
-        <div className="chat__message chat__come-message">
-          <p className="chat__message-text">
-            so what is your name? do you ever heard about me? man{" "}
-          </p>
-          <span className="chat__message-time">3:07 PM</span>
-        </div>
-        <div className="chat__message chat__come-message">
-          <p className="chat__message-text">
-            so what is your name? do you ever heard about me? man{" "}
-          </p>
-          <span className="chat__message-time">3:07 PM</span>
-        </div>
-        <div className="chat__message chat__go-message">
-          <p className="chat__message-text">woow nice name man!</p>
-          <span className="chat__message-time">3:10 PM</span>
-        </div>
+        {chatMsg.map((item) =>
+          item.fromId === _id ? (
+            <div className="chat__message chat__go-message">
+              <p className="chat__message-text">{item.text}</p>
+              <span className="chat__message-time">3:07 PM</span>
+            </div>
+          ) : item.toId === _id ? (
+            <div className="chat__message chat__come-message">
+              <p className="chat__message-text"> {item.text} </p>
+              <span className="chat__message-time">3:07 PM</span>
+            </div>
+          ) : null
+        )}
       </div>
 
       <div className="chat__form">

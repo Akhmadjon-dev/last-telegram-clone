@@ -32,7 +32,6 @@ function App() {
     setAuth(data);
   };
 
-  console.log(auth, "context app auth");
 
   if (auth) {
     const main = (

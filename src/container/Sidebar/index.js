@@ -18,16 +18,6 @@ const Contact = () => {
       </div>
       <div className="contact__user">
         <User />
-        <User />
-        <User />
-        <User />
-        <User />
-        <User />
-        <User />
-        <User />
-        <User />
-        <User />
-        <User />
       </div>
     </div>
   );

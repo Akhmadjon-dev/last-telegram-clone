@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { MdClose } from "react-icons/md";
 import User from "./User";
 import "./style.css";
 
-const Contact = () => {
+const Contact = ({ data, setId, setBar }) => {
   return (
     <div className="contact">
       <div className="contact__header">
-        <div className="contact__icon">
+        <div
+          onClick={() => {
+            setBar();
+          }}
+          className="contact__icon"
+        >
           <GiHamburgerMenu />
         </div>
         <div className="contact__search">
@@ -17,7 +22,9 @@ const Contact = () => {
         </div>
       </div>
       <div className="contact__user">
-        <User />
+        {data.map((user) => (
+          <User Click={setId} data={user} key={user._id} />
+        ))}
       </div>
     </div>
   );

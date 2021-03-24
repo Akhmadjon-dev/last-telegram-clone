@@ -1,5 +1,6 @@
 :root{
   --main-color:  #17212B;
+  --main-bc: #0e1621;
   --main-border-color: #0A121B;
   /* --text-color: #F5F5F5; */
   --text-color:#d8d9da;
@@ -11,7 +12,10 @@
   --my-msg-time-color1: #7DA8D3;
   --my-msg-time-color2:#7D9AA7;
   --blue: #6AB3F3;
-  
+  --auth-btn: #4677a9;
+  --auth-btn-hv: #5188c1;
+  --auth-text-color: #5b99d4;
+  --bar-bc: #276899;
   --top-bc: #1F2936;
   
   --menu-section-bc: #17212B;
